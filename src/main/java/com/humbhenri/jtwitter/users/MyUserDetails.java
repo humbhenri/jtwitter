@@ -1,52 +1,34 @@
 package com.humbhenri.jtwitter.users;
 
-import java.util.Collection;
-import java.util.Collections;
-
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
-public class MyUserDetails implements UserDetails {
+@Service
+public class MyUserDetails implements UserDetailsService {
+	
+	private UserRepository userRepository;
 
-    private User user;
+	public MyUserDetails(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
-    public MyUserDetails(User user) {
-        this.user = user;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList();
-    }
-
-    @Override
-    public String getPassword() {
-        return user.getPassword();
-    }
-
-    @Override
-    public String getUsername() {
-        return user.getName();
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		return userRepository.findByName(username)
+				.stream()
+				.findFirst()
+				.map(user -> org.springframework.security.core.userdetails.User
+						.withUsername(username)
+						.password(user.getPassword())
+						.accountExpired(false)
+						.accountLocked(false)
+						.credentialsExpired(false)
+						.disabled(false)
+						.authorities("USER")
+						.build())
+				.orElseThrow(() -> new UsernameNotFoundException("User " + username + " not found"));
+	}
     
 }
