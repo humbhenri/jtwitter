@@ -26,7 +26,7 @@ export default function Post({
                         <h3>
                             {displayName}
                             <span className="post__headerSpecial">
-                                <VerifiedUserIcon className="post__badge" />
+                                {verified && <VerifiedUserIcon className="post__badge" />}
                                 @{userName}
                             </span>
                         </h3>

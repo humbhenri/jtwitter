@@ -16,7 +16,7 @@ public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @Column(name = "ID_USER")
     private Long id;
 
     @NotNull
@@ -31,6 +31,9 @@ public class User {
     @NotNull
     @Column(name = "DISPLAY_NAME")
     private String displayName;
+
+    @Column(name = "VERIFIED")
+    private Boolean verified;
 
     public void setId(Long id) {
         this.id = id;
@@ -67,5 +70,13 @@ public class User {
 
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
+    }
+
+    public Boolean getVerified() {
+        return verified;
+    }
+
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
     }
 }
