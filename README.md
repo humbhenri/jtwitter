@@ -9,8 +9,9 @@ A simple twitter clone
 - Spring Security
 - H2 database
 - React
+
 ### Rest routes
-- Login (POST) __TODO__
+- Login (POST) :heavy_check_mark:
 - User registration (POST) __TODO__
 - Find user  (GET) __TODO__
 - Create tweet (POST) __TODO__
