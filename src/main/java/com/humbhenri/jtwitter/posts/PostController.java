@@ -3,6 +3,7 @@ package com.humbhenri.jtwitter.posts;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -42,8 +43,10 @@ public class PostController {
             dto.setText(post.getText());
             dto.setUserName(post.getUser().getName());
             dto.setVerified(post.getUser().getVerified());
+            dto.setId(post.getId());
             posts.add(dto);
         });
+        Collections.sort(posts, Comparator.comparing(PostDTO::getId).reversed());
         return posts;
     }
 

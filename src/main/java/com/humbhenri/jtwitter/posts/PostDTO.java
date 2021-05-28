@@ -1,6 +1,7 @@
 package com.humbhenri.jtwitter.posts;
 
 public class PostDTO {
+    private Long id;
     private String displayName;
     private String userName;
     private Boolean verified;
@@ -54,5 +55,13 @@ public class PostDTO {
 
     public String getAvatar() {
         return avatar;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

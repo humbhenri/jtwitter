@@ -1,14 +1,16 @@
 import { Button, Avatar } from '@material-ui/core';
 import React, { useState } from 'react';
-import { tweet } from './API';
+import { getPosts, tweet } from './API';
 import './TweetBox.css';
 
-export default function TweetBox() {
+export default function TweetBox({ setPosts }) {
     const [text, setText] = useState('');
     const [urlImage, setUrlImage] = useState('');
     const sendTweet = async (e) => {
         e.preventDefault();
         await tweet({text, urlImage});
+        const posts = await getPosts();
+        setPosts(posts);
         setText('');
         setUrlImage('');
     };
