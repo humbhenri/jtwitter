@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class User {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_USER")
     private Long id;
 
@@ -34,6 +34,9 @@ public class User {
 
     @Column(name = "VERIFIED")
     private Boolean verified;
+
+    @Column(name = "AVATAR")
+    private String avatar;
 
     public void setId(Long id) {
         this.id = id;
@@ -78,5 +81,13 @@ public class User {
 
     public void setVerified(Boolean verified) {
         this.verified = verified;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getAvatar() {
+        return avatar;
     }
 }

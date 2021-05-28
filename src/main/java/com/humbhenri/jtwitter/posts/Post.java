@@ -17,7 +17,7 @@ import com.humbhenri.jtwitter.users.User;
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_POST")
     private Long id;
 
@@ -32,9 +32,6 @@ public class Post {
 
     @Column(name = "IMAGE")
     private String image;
-
-    @Column(name = "AVATAR")
-    private String avatar;
 
     public Long getId() {
         return id;
@@ -68,11 +65,4 @@ public class Post {
         this.image = image;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
 }
