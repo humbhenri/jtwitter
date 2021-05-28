@@ -24,8 +24,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
-            .authorizeRequests().antMatchers("/", "/login", "/logout", "/register").permitAll()
+        http.cors().and().csrf().disable().headers().frameOptions().disable().and()
+            .authorizeRequests().antMatchers("/", "/login", "/logout", "/register", "/h2-console/**").permitAll()
             .anyRequest().authenticated().and()
             .apply(new JwtTokenFilterConfigurer(jwtTokenProvider));           
     }
