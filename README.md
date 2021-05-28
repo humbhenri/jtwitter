@@ -1,4 +1,4 @@
-# jtwitter
+# jtwitter 🚀 
 
 A simple twitter clone
 
@@ -30,3 +30,22 @@ A simple twitter clone
 - Tweet __TODO__
 - Search user __TODO__
 - Search tweet __TODO__
+
+### Development
+- Backend 
+
+``` 
+mvn spring-boot:run 
+```
+
+- Frontend 
+``` 
+cd react-app
+npm start
+```
+
+- Build for production
+
+```
+mvn clean package -Pprod
+```
