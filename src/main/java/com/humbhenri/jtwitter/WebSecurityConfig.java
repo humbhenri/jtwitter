@@ -8,9 +8,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -40,16 +37,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-     // Used by spring security if CORS is enabled.
-     @Bean
-     public CorsFilter corsFilter() {
-         var source = new UrlBasedCorsConfigurationSource();
-         var config = new CorsConfiguration();
-         config.setAllowCredentials(true);
-         config.addAllowedOrigin("*");
-         config.addAllowedHeader("*");
-         config.addAllowedMethod("*");
-         source.registerCorsConfiguration("/**", config);
-         return new CorsFilter(source);
-     }
 }

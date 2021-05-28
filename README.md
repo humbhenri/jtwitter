@@ -11,12 +11,12 @@ A simple twitter clone
 - React
 
 ### Rest routes
-- Login (POST) :heavy_check_mark:
+- Login (POST) ✔ 
 - User registration (POST) __TODO__
 - Find user  (GET) __TODO__
 - Create tweet (POST) __TODO__
 - Find tweet (GET) __TODO__
-- List all tweets (GET) __TODO__
+- List all tweets (GET) ✔ 
 - List tweets by user (GET) __TODO__
 - List one tweet (GET) __TODO__
 - Delete tweet (DELETE) __TODO__
@@ -26,7 +26,7 @@ A simple twitter clone
 - Login __TODO__
 - User registration __TODO__
 - Create tweet __TODO__
-- List tweets __TODO__
+- List tweets ✔ 
 - Tweet __TODO__
 - Search user __TODO__
 - Search tweet __TODO__
