@@ -7,8 +7,12 @@ import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone'
 import PersonIcon from '@material-ui/icons/PersonOutline';
 import SidebarOption from './SidebarOption'
 import { Button } from '@material-ui/core'
+import ExitToAppOutlined from '@material-ui/icons/ExitToAppOutlined';
 
-export default function Sidebar() {
+export default function Sidebar({ setToken }) {
+    const logout = () => {
+        setToken(null)
+    };
     return (
         <div className="sidebar">
             <TwitterIcon className="sidebar__twitterIcon"/>
@@ -17,6 +21,11 @@ export default function Sidebar() {
             <SidebarOption Icon={NotificationsNoneIcon} text="Notifications"/>
             <SidebarOption Icon={PersonIcon} text="Profile" />
             <Button variant="outlined" className="sidebar__tweet" fullWidth> Tweet </Button>
+            <div className="sidebar__logout">
+                <Button variant="outlined" className="sidebar__logoutButton" fullWidth startIcon={<ExitToAppOutlined />} onClick={logout}>
+                    Logout
+                </Button>
+            </div>
         </div>
     )
 }

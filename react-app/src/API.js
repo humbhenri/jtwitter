@@ -1,10 +1,14 @@
 import axios from 'axios';
 
+function getUserToken() {
+    return sessionStorage.getItem('token');
+}
+
 function getServer() {
     let serverOpts = {
         baseURL: 'http://localhost:8080/'
     };
-    const tokenString = sessionStorage.getItem('token');
+    const tokenString = getUserToken();
     if (!tokenString) {
         return axios.create(serverOpts);
     }
@@ -47,5 +51,12 @@ export async function login({ name, password }) {
         return res.data;
     } catch (error) {
         console.error(error);
+    }
+}
+
+export async function logout() {
+    const token = getUserToken();
+    if (token) {
+        sessionStorage.removeItem('token');
     }
 }

@@ -16,7 +16,7 @@ function App() {
             <BrowserRouter>
                 <Switch>
                     <Route path="/">
-                        <Sidebar />
+                        <Sidebar setToken={setToken}/>
                         <Feed />
                         <Widgets />
                     </Route>

@@ -4,6 +4,8 @@
     min-width: 250px;
     padding-left: 20px;
     padding-right: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar__tweet {
@@ -20,4 +22,36 @@
 .sidebar__twitterIcon {
     color: var(--twitter-color);
     font-size: 30px !important;
+}
+
+.sidebar__logout {
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.sidebar__logoutButton {
+    cursor: pointer;    
+    display: flex;
+    align-items: center;
+    border-width: 0 !important;
+    padding: 20px;
+}
+
+.sidebar__logoutButton > .MuiButton-label {
+    font-weight: 800;
+    font-size: 20px;
+    justify-content: start;
+    text-transform: none;
+    padding: 20px;
+}
+
+.sidebar__logoutButton:hover {
+    background-color: #e8f5fe;
+    border-radius: 30px;
+    color: var(--twitter-color);
+    transition: color 100ms ease-out;
+}
+
+.sidebar__logoutButton > .MuiSvgIcon-root {
+    padding: 20px;
 }
