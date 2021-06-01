@@ -21,13 +21,13 @@ export default function Login({ setToken }) {
             <form onSubmit={handleSubmit}>
                 <div className="login__input">
                     <input type="text" placeholder="User name"
-                        onChange={e => setName(e.target.value)} value={name}/>
+                        onChange={e => setName(e.target.value)} value={name} required/>
                 </div>
                 <div className="login__input">
                     <input type="password" placeholder="Password"
-                        onChange={e => setPassword(e.target.value)} value={password}/>
+                        onChange={e => setPassword(e.target.value)} value={password} required/>
                 </div>
-                <button type="submit" className="login__submit">Log in</button>
+                <button className="login__submit">Log in</button>
             </form>
         </div>
     )

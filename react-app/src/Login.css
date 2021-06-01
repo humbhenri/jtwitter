@@ -33,6 +33,7 @@
     font-weight: 900 !important;
     text-transform: inherit !important;
     height: 50px !important;
+    cursor: pointer;
 }
 
 .login__twitterIcon {

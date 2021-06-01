@@ -16,7 +16,7 @@ export default function TweetBox({ setPosts }) {
     };
     return (
         <div className="tweetBox">
-            <form>
+            <form onSubmit={sendTweet}>
                 <div className="tweetBox__input">
                     <Avatar>HP</Avatar>
                     <input
@@ -24,6 +24,7 @@ export default function TweetBox({ setPosts }) {
                         placeholder="What's happening ?"
                         value={text}
                         onChange={(e) => setText(e.target.value)}
+                        required
                     />
                 </div>
                 <div className="tweetBox__inputImg">
@@ -34,7 +35,7 @@ export default function TweetBox({ setPosts }) {
                         onChange={(e) => setUrlImage(e.target.value)}
                     />
                 </div>
-                <Button className="tweetBox__tweetButton" onClick={sendTweet}>
+                <Button type="submit" className="tweetBox__tweetButton">
                     Tweet
                 </Button>
             </form>
