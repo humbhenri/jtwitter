@@ -23,11 +23,11 @@ A simple twitter clone
 - Like/unlike on tweet (PUT) __TODO__
 
 ### React components
-- Login __TODO__
+- Login ✔
 - User registration __TODO__
 - Create tweet __TODO__
 - List tweets ✔ 
-- Tweet __TODO__
+- Tweet ✔
 - Search user __TODO__
 - Search tweet __TODO__
 
