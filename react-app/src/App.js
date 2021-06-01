@@ -9,7 +9,11 @@ import useToken from './useToken';
 function App() {
     const { token, setToken } = useToken();
     if (!token) {
-        return <Login setToken={setToken} />
+        return (
+            <div className="app">
+                <Login setToken={setToken} />
+            </div>
+        );
     }
     return (
         <div className="app">

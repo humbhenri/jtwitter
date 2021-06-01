@@ -1,0 +1,42 @@
+.login {
+    display: flex;
+    height: 100vh;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.login > form {
+    display: flex;
+    flex-direction: column;
+}
+.login__input {
+    padding: 20px 0;
+    display: flex;
+}
+
+.login__input > input {
+    float: 1;
+    font-size: 20px;
+    height: 64px;
+    width: 368px;
+}
+
+.login__submit {
+    background-color: var(--twitter-color) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 30px !important;
+    font-weight: 900 !important;
+    text-transform: inherit !important;
+    height: 50px !important;
+}
+
+.login__twitterIcon {
+    color: var(--twitter-color);
+    font-size: 50px !important;
+    margin-bottom: 20px;
+}

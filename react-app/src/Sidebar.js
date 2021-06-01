@@ -1,6 +1,6 @@
 import React from 'react'
 import './Sidebar.css'
-import TwitterIcon from '@material-ui/icons/Twitter'
+import TwitterIcon from '@material-ui/icons/Twitter';
 import HomeIcon from '@material-ui/icons/HomeOutlined'
 import SearchIcon from '@material-ui/icons/Search'
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone'
