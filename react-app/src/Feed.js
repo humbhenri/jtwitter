@@ -3,7 +3,6 @@ import { getPosts } from './API';
 import './Feed.css';
 import Post from './Post';
 import TweetBox from './TweetBox';
-import FlipMove from 'react-flip-move';
 
 export default function Feed() {
     const [posts, setPosts] = useState([]);
@@ -19,11 +18,9 @@ export default function Feed() {
                 <h2>Home</h2>
             </div>
             <TweetBox setPosts={setPosts} />
-            <FlipMove>
-                {posts.map((post) => (
-                    <Post {...post} key={post.id} />
-                ))}
-            </FlipMove>
+            {posts.map((post) => (
+                <Post {...post} key={post.id} />
+            ))}
         </div>
     );
 }
