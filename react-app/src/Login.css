@@ -41,3 +41,13 @@
     font-size: 50px !important;
     margin-bottom: 20px;
 }
+
+.login__error {
+    background-color: var(--error-color);
+    padding: 10px;
+    border-radius: 1em;
+}
+
+.login__title {
+    padding : 10px;
+}
