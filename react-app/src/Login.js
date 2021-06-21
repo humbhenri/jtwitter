@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { login } from './API';
 import './Login.css';
-import TwitterIcon from '@material-ui/icons/Twitter'
+import TwitterIcon from '@material-ui/icons/Twitter';
+import Signup from './Signup';
 
 export default function Login({ setToken }) {
     const [name, setName] = useState('');
@@ -35,6 +36,7 @@ export default function Login({ setToken }) {
                         onChange={e => setPassword(e.target.value)} value={password} required/>
                 </div>
                 <button className="login__submit">Log in</button>
+                <Signup></Signup>
             </form>
         </div>
     )

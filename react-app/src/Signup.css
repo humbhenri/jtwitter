@@ -1,0 +1,11 @@
+.signup__open {
+    border-color: var(--twitter-color) !important;
+    color: var(--twitter-color) !important;
+    background-color: white;
+    border-radius: 30px !important;
+    font-weight: 900 !important;
+    text-transform: inherit !important;
+    height: 50px !important;
+    cursor: pointer;
+    margin-top: 10px;
+}
