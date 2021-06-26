@@ -9,6 +9,7 @@ export default function Login({ setToken }) {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const handleSubmit = async e => {
+        setError('');
         e.preventDefault();
         const token = await login({ name, password });
         if (token) {
@@ -25,7 +26,7 @@ export default function Login({ setToken }) {
         <div className="login">
             <TwitterIcon className="login__twitterIcon"/>
             <h2 className="login__title">Login to JTwitter</h2>
-            {error && <p className="login__error">{error}</p>}
+            <div className="login__error">{error && <p className="login__error">{error}</p>}</div>
             <form onSubmit={handleSubmit}>
                 <div className="login__input">
                     <input type="text" placeholder="User name"

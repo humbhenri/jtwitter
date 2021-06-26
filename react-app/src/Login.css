@@ -42,10 +42,16 @@
     margin-bottom: 20px;
 }
 
-.login__error {
+div.login__error {
+    display: flex;
+    justify-content: center;
+}
+
+p.login__error {
     background-color: var(--error-color);
     padding: 10px;
     border-radius: 1em;
+    max-width: 300px;
 }
 
 .login__title {

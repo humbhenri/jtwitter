@@ -60,3 +60,14 @@ export async function logout() {
         sessionStorage.removeItem('token');
     }
 }
+
+export async function signup({ name, password, displayName }) {
+    try {
+        const res = await getServer().post('signup', { name, password, displayName});
+        console.log(JSON.stringify(res));
+        return res.data;
+    } catch (error) {
+        console.error(error.response.data);
+        return error.response.data;
+    }
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import './Signup.css';
+import { signup } from './API';
 
 const customStyles = {
   content: {
@@ -19,15 +20,27 @@ export default function Signup() {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
+    const [displayName, setDisplayName] = useState('');
+    const [error, setError] = useState('');
     function openModal() {
         setIsOpen(true);
     }
     function closeModal() {
+        setError('');
+        setName('');
+        setPassword('');
+        setDisplayName('');
         setIsOpen(false);
     }
-    async function handleSubmit(e) {
-        e.preventDefault();
-        console.log('TODO')
+    async function doSignup(e) {
+        setError('');
+        const data = await signup({ name, password, displayName });
+        if (data && 'message' in data) {
+            setError(data.message);
+        } else {
+            console.log('Signup successful');
+            closeModal();
+        }
     }
     return (
       <>
@@ -36,19 +49,24 @@ export default function Signup() {
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             style={customStyles}
-            contentLabel="Example Modal"
+            contentLabel="Signup"
         >
         <h2>Sign up on JTwitter</h2>
+        <div className="login__error">{error && <p className="login__error">{error}</p>}</div>
         <form>
             <div className="login__input">
                 <input type="text" placeholder="User name"
                     onChange={e => setName(e.target.value)} value={name} required/>
             </div>
             <div className="login__input">
+                <input type="text" placeholder="Display name"
+                    onChange={e => setDisplayName(e.target.value)} value={displayName} required/>
+            </div>
+            <div className="login__input">
                 <input type="password" placeholder="Password"
                     onChange={e => setPassword(e.target.value)} value={password} required/>
             </div>
-            <button type="button" className="login__submit" onClick={handleSubmit}>Create account</button>
+            <button type="button" className="login__submit" onClick={doSignup}>Create account</button>
         </form>
       </Modal>
       </>
