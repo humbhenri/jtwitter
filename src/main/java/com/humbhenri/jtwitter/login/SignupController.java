@@ -3,6 +3,7 @@ package com.humbhenri.jtwitter.login;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,8 @@ public class SignupController {
 		}
 		User user = new User();
 		user.setName(dto.getName());
-		user.setPassword(dto.getPassword());
+		var encoder = new BCryptPasswordEncoder();
+		user.setPassword(encoder.encode(dto.getPassword()));
 		user.setDisplayName(dto.getDisplayName());
 		userRepository.save(user);
 	}
