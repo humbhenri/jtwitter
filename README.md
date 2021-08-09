@@ -49,3 +49,6 @@ npm start
 ```
 mvn clean package -Pprod
 ```
+
+![Login](site/img/jtwitter-login.png)
+![Feed](./site/img/jtwitter-main.png)
