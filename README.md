@@ -2,7 +2,7 @@
 
 A simple twitter clone
 
-## Architecture
+## Stack
 - Java 11
 - Spring Boot
 - Restful
