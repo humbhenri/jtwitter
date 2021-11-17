@@ -2,7 +2,7 @@
 
 A simple twitter clone
 
-## Architecture
+## Stack
 - Java 11
 - Spring Boot
 - Restful
@@ -49,3 +49,6 @@ npm start
 ```
 mvn clean package -Pprod
 ```
+
+![Login](site/img/jtwitter-login.png)
+![Feed](./site/img/jtwitter-main.png)

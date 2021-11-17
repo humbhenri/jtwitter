@@ -16,15 +16,15 @@ const customStyles = {
     },
 };
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
-export default function Signup() {
+export default function Signup(props) {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [error, setError] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = async ({name, displayName, password}, e) => {
         const data = await signup({ name, password, displayName });
-        if (data && 'message' in data) {
+        if (data && "message" in data) {
             setError(data.message);
         } else {
             closeModal();

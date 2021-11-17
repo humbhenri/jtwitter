@@ -18,9 +18,9 @@ export default function Login({ setToken }) {
             setToken(token);
             setError('');
         } else {
-            setError('Login or password incorrect');
+            setError("Login or password incorrect");
         }
-    }
+    };
     return (
         <div className="login">
           <TwitterIcon className="login__twitterIcon"/>
@@ -45,5 +45,5 @@ export default function Login({ setToken }) {
           </form>
           <Signup></Signup>
         </div>
-    )
+    );
 }

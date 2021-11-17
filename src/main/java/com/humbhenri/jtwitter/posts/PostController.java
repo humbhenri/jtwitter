@@ -1,11 +1,10 @@
 package com.humbhenri.jtwitter.posts;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
-import java.util.logging.Logger;
 
 import javax.validation.Valid;
 
@@ -33,9 +32,9 @@ public class PostController {
     }
 
     @GetMapping
-    public Collection<PostDTO> getPosts() {
+    public Collection<PostDTO> getPosts(Principal principal) {
         var posts = new ArrayList<PostDTO>();
-        postRepository.findAll().forEach(post -> {
+        postRepository.findByUserName(principal.getName()).forEach(post -> {
             var dto = new PostDTO();
             dto.setAvatar(post.getUser().getAvatar());
             dto.setDisplayName(post.getUser().getDisplayName());

@@ -1,12 +1,12 @@
-import axios from 'axios';
+import axios from "axios";
 
 function getUserToken() {
-    return sessionStorage.getItem('token');
+    return sessionStorage.getItem("token");
 }
 
 function getServer() {
     let serverOpts = {
-        baseURL: 'http://localhost:8080/'
+        baseURL: "http://localhost:8080/",
     };
     const tokenString = getUserToken();
     if (!tokenString) {
@@ -16,9 +16,8 @@ function getServer() {
     if (token) {
         serverOpts = Object.assign(serverOpts, {
             headers: {
-                Authorization:
-                    'Bearer ' + token,
-            }
+                Authorization: "Bearer " + token,
+            },
         });
     }
     return axios.create(serverOpts);
@@ -26,7 +25,7 @@ function getServer() {
 
 export async function getPosts() {
     try {
-        const res = await getServer().get('posts');
+        const res = await getServer().get("posts");
         return res.data;
     } catch (error) {
         console.error(error);
@@ -35,8 +34,8 @@ export async function getPosts() {
 
 export async function tweet({ text, urlImage }) {
     try {
-        const res = await getServer().post('posts', { text, urlImage });
-        console.log('tweet successfull');
+        const res = await getServer().post("posts", { text, urlImage });
+        console.log("tweet successfull");
         return res.data;
     } catch (error) {
         console.error(error);
@@ -45,9 +44,9 @@ export async function tweet({ text, urlImage }) {
 
 export async function login({ name, password }) {
     try {
-        const res = await getServer().post('login', { name, password });
+        const res = await getServer().post("login", { name, password });
         console.log(JSON.stringify(res));
-        console.log('login successfull');
+        console.log("login successfull");
         return res.data;
     } catch (error) {
         console.error(error);
@@ -57,13 +56,17 @@ export async function login({ name, password }) {
 export async function logout() {
     const token = getUserToken();
     if (token) {
-        sessionStorage.removeItem('token');
+        sessionStorage.removeItem("token");
     }
 }
 
 export async function signup({ name, password, displayName }) {
     try {
-        const res = await getServer().post('signup', { name, password, displayName});
+        const res = await getServer().post("signup", {
+            name,
+            password,
+            displayName,
+        });
         console.log(JSON.stringify(res));
         return res.data;
     } catch (error) {
