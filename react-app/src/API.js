@@ -67,7 +67,7 @@ export async function signup({ name, password, displayName }) {
         console.log(JSON.stringify(res));
         return res.data;
     } catch (error) {
-        console.error(error.response.data);
-        return error.response.data;
+        console.error(error);
+        return error;
     }
 }

@@ -34,6 +34,7 @@
     text-transform: inherit !important;
     height: 50px !important;
     cursor: pointer;
+    margin: 5px;
 }
 
 .login__twitterIcon {
@@ -49,7 +50,7 @@ div.login__error {
 
 p.login__error {
     background-color: var(--error-color);
-    padding: 10px;
+    padding: 5px;
     border-radius: 1em;
     max-width: 300px;
 }
