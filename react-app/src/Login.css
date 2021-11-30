@@ -25,18 +25,6 @@
     width: 368px;
 }
 
-.login__submit {
-    background-color: var(--twitter-color) !important;
-    border: none !important;
-    color: white !important;
-    border-radius: 30px !important;
-    font-weight: 900 !important;
-    text-transform: inherit !important;
-    height: 50px !important;
-    cursor: pointer;
-    margin: 5px;
-}
-
 .login__twitterIcon {
     color: var(--twitter-color);
     font-size: 50px !important;
@@ -46,13 +34,6 @@
 div.login__error {
     display: flex;
     justify-content: center;
-}
-
-p.login__error {
-    background-color: var(--error-color);
-    padding: 5px;
-    border-radius: 1em;
-    max-width: 300px;
 }
 
 .login__title {

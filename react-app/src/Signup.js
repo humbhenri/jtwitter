@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import './Signup.css';
 import { signup } from './API';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
+import Button from './components/button';
+import Error from './components/error';
 
 const customStyles = {
     content: {
@@ -41,7 +42,7 @@ export default function Signup(props) {
         setIsOpen(false);
     }
     return <>
-             <button onClick={openModal}  className="signup__open">Sign up</button>
+             <Button onClick={openModal}>Sign up</Button>
              <Modal
                isOpen={modalIsOpen}
                onRequestClose={closeModal}
@@ -49,7 +50,7 @@ export default function Signup(props) {
                contentLabel="Signup"
              >
                <h2>Sign up on JTwitter</h2>
-               <div className="login__error">{error && <p className="login__error">{error}</p>}</div>
+               <div className="login__error">{error && <Error>{error}</Error>}</div>
                <form onSubmit={ handleSubmit(onSubmit, onError) }>
                  <div className="login__input">
                    <input
@@ -59,7 +60,7 @@ export default function Signup(props) {
                          required: 'O campo é obrigatório.',
                      })} />
                  </div>
-                 <ErrorMessage errors = { errors } name="name" render={({message}) => <p className="login__error">{message}</p>}/>
+                 <ErrorMessage errors = { errors } name="name" render={({message}) => <Error>{message}</Error>}/>
                  <div className="login__input">
                    <input
                      type="text"
@@ -68,7 +69,7 @@ export default function Signup(props) {
                          required: 'O campo é obrigatório.',
                      })} />
                  </div>
-                 <ErrorMessage errors = { errors } name="displayName" render={({message}) => <p className="login__error">{message}</p>}/>
+                 <ErrorMessage errors = { errors } name="displayName" render={({message}) => <Error>{message}</Error>}/>
                  <div className="login__input">
                    <input
                      type="password"
@@ -77,8 +78,8 @@ export default function Signup(props) {
                          required: 'O campo é obrigatório.',
                      })}/>
                  </div>
-                 <ErrorMessage errors = { errors } name="password" render={({message}) => <p className="login__error">{message}</p>}/>
-                 <input type="submit" className="login__submit" value="Create account"/>
+                 <ErrorMessage errors = { errors } name="password" render={({message}) => <Error>{message}</Error>}/>
+                 <Button primary>Create account</Button>
                </form>
              </Modal>
            </>;

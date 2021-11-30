@@ -5,6 +5,8 @@ import { login } from './API';
 import './Login.css';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import Signup from './Signup';
+import Button from './components/button';
+import Error from './components/error';
 
 export default function Login({ setToken }) {
     const [error, setError] = useState('');
@@ -25,7 +27,7 @@ export default function Login({ setToken }) {
         <div className="login">
           <TwitterIcon className="login__twitterIcon"/>
           <h2 className="login__title">Login to JTwitter</h2>
-          <div className="login__error">{error && <p className="login__error">{error}</p>}</div>
+          <div className="login__error">{error && <Error>{error}</Error>}</div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="login__input">
               <input type="text" placeholder="User name"
@@ -33,15 +35,15 @@ export default function Login({ setToken }) {
                          required: 'O campo é obrigatório.',
                      })} />
             </div>
-            <ErrorMessage errors = { errors } name="name" render={({message}) => <p className="login__error">{message}</p>}/>
+            <ErrorMessage errors = { errors } name="name" render={({message}) => <Error>{message}</Error>}/>
             <div className="login__input">
               <input type="password" placeholder="Password"
                      {...register('password', {
                          required: 'O campo é obrigatório.',
                      })} />
             </div>
-            <ErrorMessage errors = { errors } name="password" render={({message}) => <p className="login__error">{message}</p>}/>
-            <button className="login__submit">Log in</button>
+            <ErrorMessage errors = { errors } name="password" render={({message}) => <Error>{message}</Error>}/>
+            <Button primary>Log in</Button>
           </form>
           <Signup></Signup>
         </div>
