@@ -1,18 +1,19 @@
-import { Button, Avatar } from '@material-ui/core';
-import React, { useState } from 'react';
-import { getPosts, tweet } from './API';
-import './TweetBox.css';
+import { Avatar } from "@material-ui/core";
+import React, { useState } from "react";
+import { getPosts, tweet } from "./API";
+import "./TweetBox.css";
+import Button from "./components/button";
 
 export default function TweetBox({ setPosts }) {
-    const [text, setText] = useState('');
-    const [urlImage, setUrlImage] = useState('');
+    const [text, setText] = useState("");
+    const [urlImage, setUrlImage] = useState("");
     const sendTweet = async (e) => {
         e.preventDefault();
-        await tweet({text, urlImage});
+        await tweet({ text, urlImage });
         const posts = await getPosts();
         setPosts(posts);
-        setText('');
-        setUrlImage('');
+        setText("");
+        setUrlImage("");
     };
     return (
         <div className="tweetBox">
@@ -35,7 +36,16 @@ export default function TweetBox({ setPosts }) {
                         onChange={(e) => setUrlImage(e.target.value)}
                     />
                 </div>
-                <Button type="submit" className="tweetBox__tweetButton">
+                <Button
+                    type="submit"
+                    primary
+                    style={{
+                        marginLeft: "auto",
+                        padding: "10px",
+                        width: "100px",
+                        height: "inherit",
+                    }}
+                >
                     Tweet
                 </Button>
             </form>
